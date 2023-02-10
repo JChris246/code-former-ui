@@ -1,10 +1,14 @@
-const prodLogger = require("./productionLogger");
-const devLogger = require("./developmentLogger");
-const fs = require("fs");
+import fs from "fs";
+import prodLogger from "./productionLogger.js";
+import devLogger from "./developmentLogger.js";
+import getMorganLogger from "./morganLogger.js";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 // process.env.TZ = "UTC";
 
-module.exports.setup = (isInitial=false) => {
+const setup = (isInitial=false) => {
     let logger = null;
     if (!fs.existsSync(global.LOG_DIR)) {
         fs.mkdirSync(global.LOG_DIR);
@@ -29,5 +33,7 @@ module.exports.setup = (isInitial=false) => {
         logger.info("Using " + loggerType + " logger");
     }
 
-    return logger;
+    return { logger, morganLogger: getMorganLogger(logger) };
 };
+
+export default setup;

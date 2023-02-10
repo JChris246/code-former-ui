@@ -1,4 +1,4 @@
-const { createLogger, format, transports, addColors } = require("winston");
+import { createLogger, format, transports, addColors } from "winston";
 const { printf, combine, timestamp, colorize } = format;
 
 const levels = {
@@ -41,4 +41,4 @@ const DevelopmentLogger = () => {
     });
 };
 
-module.exports = DevelopmentLogger;
+export default DevelopmentLogger;

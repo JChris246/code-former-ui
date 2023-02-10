@@ -1,0 +1,23 @@
+# Ignoring git and cache folders
+.git
+
+# Ignoring all the markdown, docker and kubernetes files
+**/*.md
+**/*yml
+Dockerfile
+
+# dependencies
+**/node_modules/
+.pnp/
+.pnp.js
+
+# production
+build/
+dist/
+
+# misc
+**/.env
+.css
+.DS_Store
+**/.env.sample
+**/logs/
