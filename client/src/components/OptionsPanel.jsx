@@ -17,7 +17,7 @@ const OptionsPanel = () => {
         else setOptions({ ...options, [name]: value });
     }
 
-    const clear = () => !onGoingProcess.active && setImageSrc(null);
+    const clear = () => !onGoingProcess.active && setImageSrc(null) && setResultImage(null);
 
     const enhance = () => {
         if (onGoingProcess.active)
